@@ -1,6 +1,6 @@
 #include "SupraUnitaryMantissa.h"
 
-int SubUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(double number) {
+int SubUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(const double number) {
     if (number <= 0 || number >= 1) {
         throw std::invalid_argument("Number must be in the range (0, 1)");
     }
@@ -32,7 +32,7 @@ std::string SubUnitaryNumberSupraUnitMantissaIEEE754::CalculateMantissa(double n
     return mantissaBinary;
 }
 
-std::size_t SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(double number) {
+std::size_t SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(const double number) {
     if (number <= 1) {
         throw std::invalid_argument("Number must be greater than 1.");
     }
@@ -43,7 +43,7 @@ std::size_t SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(double
 
     // Convert the integer part to binary
     while (integerPart > 0) {
-        binaryRepresentation.push_back(static_cast < char > ('0' + (integerPart % 2)));
+        binaryRepresentation.push_back(static_cast < char > ('0' + integerPart % 2));
         integerPart /= 2;
     }
     std::ranges::reverse(binaryRepresentation);
@@ -58,7 +58,7 @@ std::size_t SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateExponent(double
     return 127 + lengthFromFirstOne;
 }
 
-std::string SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateMantissa(double number) {
+std::string SupraUnitaryNumberSupraUnitMantissaIEEE754::CalculateMantissa(const double number) {
     if (number <= 1) {
         throw std::invalid_argument("Number must be greater than 1.");
     }

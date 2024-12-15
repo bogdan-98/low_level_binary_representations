@@ -1,6 +1,6 @@
 #include "SubUnitaryMantissa.h"
 
-int SubUnitaryNumberSubUnitMantissaIEEE754::CalculateExponent(double number) {
+int SubUnitaryNumberSubUnitMantissaIEEE754::CalculateExponent(const double number) {
     if (number <= 0 || number >= 1) {
         throw std::invalid_argument("Number must be in the range (0, 1)");
     }
@@ -32,7 +32,7 @@ std::string SubUnitaryNumberSubUnitMantissaIEEE754::CalculateMantissa(double num
     return mantissaBinary;
 }
 
-std::size_t SupraUnitaryNumberSubUnitaryMantissaIEEE754::CalculateExponent(double number) {
+std::size_t SupraUnitaryNumberSubUnitaryMantissaIEEE754::CalculateExponent(const double number) {
     if (number <= 1) {
         throw std::invalid_argument("Number must be greater than 1.");
     }
@@ -41,21 +41,21 @@ std::size_t SupraUnitaryNumberSubUnitaryMantissaIEEE754::CalculateExponent(doubl
     std::string binaryRepresentation;
 
     while (integerPart > 0) {
-        binaryRepresentation.push_back(static_cast<char>('0' + (integerPart % 2)));
+        binaryRepresentation.push_back(static_cast<char>('0' + integerPart % 2));
         integerPart /= 2;
     }
     std::ranges::reverse(binaryRepresentation.begin(), binaryRepresentation.end());
 
-    std::size_t shifts = binaryRepresentation.size();
+    const std::size_t shifts = binaryRepresentation.size();
     return 127 + shifts;
 }
 
-std::string SupraUnitaryNumberSubUnitaryMantissaIEEE754::CalculateMantissa(double number) {
+std::string SupraUnitaryNumberSubUnitaryMantissaIEEE754::CalculateMantissa(const double number) {
     if (number <= 1) {
         throw std::invalid_argument("Number must be greater than 1.");
     }
 
-    int integerPart = static_cast<int>(number);
+    const int integerPart = static_cast<int>(number);
     double fractionalPart = number - integerPart;
     std::string mantissaBinary = std::bitset<23>(integerPart).to_string();
 
