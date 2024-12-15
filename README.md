@@ -1,0 +1,1 @@
+A simple console-based program that performs arithmetic operations, displays numeric values in various low-level representations like IEEE 754, detects key issues such as overflow, and includes guidance text and ASCII characters to resemble a retro-style interface, making it suitable for educational purposes in understanding number representations and operations.
