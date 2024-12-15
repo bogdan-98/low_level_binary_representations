@@ -5,16 +5,17 @@
 #include <bitset>
 #include <stdexcept>
 #include <cmath>
-#include "services/SubUnitaryMantissa.h"
-#include "services/SupraUnitaryMantissa.h"
+#include "../components//SubUnitaryMantissa.h"
+#include "../components//SupraUnitaryMantissa.h"
+#include "utils.h"
 
 // Converts a decimal integer to an 8-bit binary string
-std::string DecimalIntegerToBinaryExponent(const std::size_t number) {
+std::string utils::DecimalIntegerToBinaryExponent(const std::size_t number) {
   std::size_t workNumber = number;
   std::string binaryResult;
 
   while (workNumber != 0) {
-    binaryResult.push_back(static_cast < char > ('0' + (workNumber % 2)));
+    binaryResult.push_back(static_cast < char > ('0' + workNumber % 2));
     workNumber /= 2;
   }
 
@@ -28,31 +29,28 @@ std::string DecimalIntegerToBinaryExponent(const std::size_t number) {
 }
 
 // Checks if a number is positive
-bool checkIfPositive(const double number) {
+bool utils::checkIfPositive(const double number) {
   return number > 0;
 }
 
 // Classifies a number into "SubUnitary", "EquiUnitary", or "SupraUnitary"
-std::string checkValueRange(const double number) {
+std::string utils::checkValueRange(const double number) {
   if (number >= 0 && number < 1) {
     return "SubUnitary";
-  } else if (number == 1) {
-    return "EquiUnitary";
-  } else if (number > 1) {
-    return "SupraUnitary";
-  } else {
-    return "Out of range";
   }
+
+  if (number == 1) {
+    return "EquiUnitary";
+  }
+
+  if (number > 1) {
+    return "SupraUnitary";
+  }
+
+  return "Out of range";
 }
 
-int main() {
-  double number;
-  std::cout << "Insert a number: ";
-  std::cin >> number;
-
-  std::string mantissaType;
-  std::cout << "Specify mantissa type (SubUnitary/SupraUnitary): ";
-  std::cin >> mantissaType;
+std::string utils::returnValue(double number, const std::string& mantissaType) {
 
   std::string result;
   if (checkIfPositive(number)) {
@@ -122,6 +120,6 @@ int main() {
     }
   }
 
-  std::cout << result << std::endl;
+  return result;
 
 }
