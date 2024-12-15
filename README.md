@@ -1,0 +1,1 @@
+A simple console-based program that performs arithmetic operations, displays numeric values in various low-level representations like IEEE 754, and identifies key considerations such as overflow, making it suitable for educational purposes in understanding number representations and operations
