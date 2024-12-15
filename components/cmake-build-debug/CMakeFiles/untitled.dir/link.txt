@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/untitled.dir/main.cpp.o CMakeFiles/untitled.dir/services/IEEE_754_Representation/components/subunitary_mantissa.cpp.o CMakeFiles/untitled.dir/services/IEEE_754_Representation/components/supraunitary_mantissa.cpp.o CMakeFiles/untitled.dir/ui/console.cpp.o CMakeFiles/untitled.dir/services/IEEE_754_Representation/utils/utils.cpp.o -o untitled

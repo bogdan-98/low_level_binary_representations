@@ -1,3 +1,0 @@
-/home/bogdan/CLionProjects/calc_byte/components/cmake-build-debug/CMakeFiles/untitled.dir
-/home/bogdan/CLionProjects/calc_byte/components/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/bogdan/CLionProjects/calc_byte/components/cmake-build-debug/CMakeFiles/rebuild_cache.dir
