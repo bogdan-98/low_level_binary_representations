@@ -12,6 +12,7 @@ public:
     static void performLowLevelArithmeticUI();
     static void printMenu();
     static void run();
+    static void informationSectionUI();
 };
 
 #endif //CONSOLE_H

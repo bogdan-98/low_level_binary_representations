@@ -14,15 +14,20 @@ void console::representIEEE754FormatUI() {
 }
 
 void console::performLowLevelArithmeticUI() {
-    std::cout << "This feature is yet to be implemented.";
+    std::cout << "This feature is yet to be implemented." << "\n";
 }
 
 void console::printMenu() {
     std::cout << "Main Menu" << "\n";
     std::cout << "1. Represent a number in IEEE 754." << "\n";
     std::cout << "2. Perform low-level arithmetic operations." << "\n";
-    std::cout << "3. Exit program." << "\n";
-    std::cout << ">>>";
+    std::cout << "3. Information section." << "\n";
+    std::cout << "4. Exit program." << "\n";
+    std::cout << "Type a number: >>> ";
+}
+
+void console::informationSectionUI() {
+    std::cout << "This feature is yet to be implemented." << "\n";
 }
 
 void console::run() {
@@ -38,7 +43,10 @@ void console::run() {
                 console::performLowLevelArithmeticUI();
                 break;
             case 3:
-                std::cout << "Exiting...";
+                console::informationSectionUI();
+                break;
+            case 4:
+                std::cout << "Exiting..." << "\n";
                 exit(0);
             default:
                 std::cout << "Invalid choice. Please try again.";
